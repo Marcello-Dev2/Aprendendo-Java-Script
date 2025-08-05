@@ -1,0 +1,15 @@
+body{
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+
+}
+div{
+    background-color: blueviolet;
+    color: aliceblue;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 20px;
+}
