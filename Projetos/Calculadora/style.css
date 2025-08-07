@@ -28,9 +28,11 @@ input{
     border:none;
     outline: none;
     color: white;
-    font-size: 40px;
+    font-size: 55px;
     text-align: end;
-  
+    border: 1px solid ;
+    border-radius: 20px;
+    padding: 20px;
 }
 button{
     font-size: 24px;
@@ -38,6 +40,13 @@ button{
      border-radius: 20px;
     margin: 10px;
     color: whitesmoke;
+    cursor: pointer;
+}
+button:hover{
+    opacity: .8;
+}
+button:active{
+    opacity: .6;
 }
 .black-button{
     background-color: #303136;
