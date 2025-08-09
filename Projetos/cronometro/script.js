@@ -11,10 +11,17 @@ let minutes = 0;
 let seconds = 0;
 let milliseconds = 0;
 let isPaused = false;
+let interval = null;
+startBtn.addEventListener("click", startTimer);
+pauseBtn.addEventListener("click", pauseTimer);
+resumeBtn.addEventListener("click", resumeTimer);
+resetBtn.addEventListener("click", resetTimer);
+
 
 startBtn.addEventListener("click", startTimer)
 
 function startTimer() {
+    if (interval) return;
     interval = setInterval(() => {
 
         if (!isPaused) {
@@ -31,15 +38,55 @@ function startTimer() {
 
             minutesEl.textContent = formatTimer(minutes);
             secondsEl.textContent = formatTimer(seconds);
-            millisecondsEl.textContent =formatMilli(milliseconds);
+            millisecondsEl.textContent = formatMilli(milliseconds);
         }
     }, 10)
+    startBtn.style.display = "none";
+    pauseBtn.style.display = "block"
 }
-function formatTimer(time){
-    return time < 10 ? `0${time} `: time
+function formatTimer(time) {
+    return time < 10 ? `0${time} ` : time
 }
-function formatMilli(time){
-    return time < 100 ? `${time}`.padStart(3, "000") : time ;
+function formatMilli(time) {
+    return time < 100 ? `${time}`.padStart(3, "000") : time;
 }
-resetBtn.addEventListener("click", reset)
+function pauseTimer() {
+    isPaused = true
+    pauseBtn.style.display = "none"
+    resumeBtn.style.display = "block";
 
+}
+function resetTimer(){
+    clearInterval(interval)
+    minutes = 0;
+    seconds = 0 ;
+    milliseconds = 0;
+
+    millisecondsEl.textContent = "00"
+    secondsEl.textContent = "00"
+    millisecondsEl.textContent = "000"
+
+    startBtn.style.display = " block";
+    pauseBtn.style.display = "none";
+    resumeBtn.style.display = "none";
+}
+
+function resumeTimer(){
+    isPaused = false
+    pauseBtn.style.display = "block"
+    resumeBtn.style.display = "none"
+}
+function resetTimer(){
+    clearInterval(interval)
+    minutes = 0;
+    seconds = 0 ;
+    milliseconds = 0;
+
+    millisecondsEl.textContent = "00"
+    secondsEl.textContent = "00"
+    millisecondsEl.textContent = "000"
+
+    startBtn.style.display = " block";
+    pauseBtn.style.display = "none";
+    resumeBtn.style.display = "none";
+}
