@@ -56,16 +56,19 @@ myPromise3.then((data) => {
 //Resover várias promessas
 
 const p1 = new Promise((resolve, reject) => {
-    console.log("P1 ok")
+    setTimeout(() => {
+        resolve("P1 ok !")
+    }, 2000);
 })
 const p2 = new Promise((resolve, reject) => {
-    console.log("P2 ok")
+    resolve("P2 ok")
 })
 const p3 = new Promise((resolve, reject) => {
-    console.log("P3 ok")
+    resolve("P3 ok")
 })
 const resoveAll = Promise.all([p1,
     p2,
     p3]).then((data) => {
         console.group(data)
     })
+    console.log("depois do all")
