@@ -6,4 +6,5 @@ const calculador = {
         
     }
 };
-calculador.somar(2);
+calculador.somar(3)
+calculador.somar(2)
